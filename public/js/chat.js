@@ -4,6 +4,7 @@
  */
 
 $(document).ready(function(){
+
     var mainChat = '<div id="chat"> <div class="topo"> <div class="titulo"> Vaga: Desenvolvedor Front-end </div><div class="botoes"> <div class="minimize"></div><div class="close"></div></div></div><div class="conteudo"> <div class="chat"> <div id="scrollbar1" class="nano"><div id="boxchat" class="nano-content"></div></div></div><div class="mensagem"> <textarea placeholder="Digite aqui sua mensagem"></textarea> </div></div></div>';
     var boxChatVisitor = '<div><div id="${id}" class="linechat"><ul><li class="messages" id="${userid}"></li><li><div class="foto"><img src="../static/img/profiles/${userid}.jpg"></div></li></ul></div></div>';
     var boxChat = '<div><div id="${id}" class="linechat"><ul><li><div class="foto esq"><img src="../static/img/profiles/${userid}.jpg"></div></li><li class="messages" id="${userid}"></li></ul></div></div>';
@@ -19,8 +20,10 @@ $(document).ready(function(){
     
     $.tmpl( "mainChat" ).appendTo( "section" );    
     
+
     $('#scrollbar1').nanoScroller();
     
+
     // chamada para fechar o box do chat
     $("#chat > div.topo > div.botoes > div.close").click(function(event){
     	event.preventDefault();
@@ -41,6 +44,7 @@ $(document).ready(function(){
     	}  	    	
     })
     
+
     var formatDate = function(str,stamp){
     	var date = stamp ? new Date(str*1000) : new Date();
     	var hours = date.getHours();
@@ -55,6 +59,7 @@ $(document).ready(function(){
     		return r;   	
     }
     
+
     
     var localUser = {};
     var sequencia;
@@ -146,4 +151,5 @@ $(document).ready(function(){
     
     loadChat();
     
+
 });

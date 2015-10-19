@@ -14,8 +14,10 @@ html {
 	}
 	
 	header > div.container{
+
 		/*width: 960px;*/
 		margin: 0 auto;
+
 	}
 	
 	header> div.container > div.logo{
@@ -54,11 +56,13 @@ html {
 	}
 	
 	footer > div.container{
+
 		/*width: 960px;*/ margin: 0 auto;
 	}
 	
 	
 	
+
 	footer > div.container > ul > li > div.logo{
 		width:52px;
 		height:28px;
@@ -109,10 +113,12 @@ html {
 	
 	
 	
+
 	@media (max-width: 680px) {
 		footer > div.container > ul > li > div.rodape{
 			display:none
 		}
 	}
+
 		
 	

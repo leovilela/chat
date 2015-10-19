@@ -64,11 +64,13 @@
 		float:left
 	}
 	
+
 	#boxchat > div.linechat > ul > li > div > img {
 		max-width: 100%;
 		height: auto;
 	}
 	
+
 	#boxchat > div.linechat > ul > li > div > div.box > div.conversa > div.perfil
 	{
 		font-size:14px;
@@ -145,6 +147,7 @@
 	}
 	
 	
+
 	/**.nano { background: #bba; width: 575px; height: 410px; }**/
 
 /** initial setup **/
