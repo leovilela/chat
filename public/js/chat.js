@@ -4,10 +4,9 @@
  */
 
 $(document).ready(function(){
-    var scrollbar = $("#scrollbar1");
-    var mainChat = '<div id="chat"> <div class="topo"> <div class="titulo"> Vaga: Desenvolvedor Front-end </div><div class="botoes"> <div class="minimize"></div><div class="close"></div></div></div><div class="conteudo"> <div class="chat"> <div id="scrollbar1"> <div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div><div class="viewport"> <div class="overview"> <div id="boxchat"> </div></div></div></div></div><div class="mensagem"> <textarea placeholder="Digite aqui sua mensagem"></textarea> </div></div></div>';
-    var boxChatVisitor = '<div><div id="${id}" class="linechat"><ul><li class="messages"></li><li><div class="foto"><img src="../static/img/profiles/${userid}.jpg"></div></li></ul></div></div>';
-    var boxChat = '<div><div id="${id}" class="linechat"><ul><li><div class="foto esq"><img src="../static/img/profiles/${userid}.jpg"></div></li><li class="messages"></li></ul></div></div>';
+    var mainChat = '<div id="chat"> <div class="topo"> <div class="titulo"> Vaga: Desenvolvedor Front-end </div><div class="botoes"> <div class="minimize"></div><div class="close"></div></div></div><div class="conteudo"> <div class="chat"> <div id="scrollbar1" class="nano"><div id="boxchat" class="nano-content"></div></div></div><div class="mensagem"> <textarea placeholder="Digite aqui sua mensagem"></textarea> </div></div></div>';
+    var boxChatVisitor = '<div><div id="${id}" class="linechat"><ul><li class="messages" id="${userid}"></li><li><div class="foto"><img src="../static/img/profiles/${userid}.jpg"></div></li></ul></div></div>';
+    var boxChat = '<div><div id="${id}" class="linechat"><ul><li><div class="foto esq"><img src="../static/img/profiles/${userid}.jpg"></div></li><li class="messages" id="${userid}"></li></ul></div></div>';
     
     var boxMessageVisitor = '<div><div class="setadir"><div class="box"><div class="conversa"><div class="sentencas">${message}</div><div class="perfil">${name}</div><div class="visualizacao ${alreadyRead}"><div class="horario">enviado as ${time}</div></div></div></div></div></div>';
     var boxMessage = '<div><div class="setaesq"><div class="box"><div class="conversa"><div class="sentencas">${message}</div><div class="perfil"><div class="nome">${name}</div><div class="empresa">${company}</div></div><div class="visualizacao"><div class="horario">enviado as ${time}</div></div></div></div></div></div>';  
@@ -19,6 +18,8 @@ $(document).ready(function(){
     $.template( "boxMessage", boxMessage );
     
     $.tmpl( "mainChat" ).appendTo( "section" );    
+    
+    $('#scrollbar1').nanoScroller();
     
     // chamada para fechar o box do chat
     $("#chat > div.topo > div.botoes > div.close").click(function(event){
@@ -40,8 +41,8 @@ $(document).ready(function(){
     	}  	    	
     })
     
-    var formatDate = function(str){
-    	var date = new Date(str*1000);
+    var formatDate = function(str,stamp){
+    	var date = stamp ? new Date(str*1000) : new Date();
     	var hours = date.getHours();
     	var minutes = "0" + date.getMinutes();
     	var seconds = "0" + date.getSeconds();
@@ -54,62 +55,95 @@ $(document).ready(function(){
     		return r;   	
     }
     
+    
+    var localUser = {};
+    var sequencia;
+    var identificador;
+    
+    var putMessage = function(json){    	
+    	var val = json[0];
+    	if(!val.company){   		
+    			
+	    		localUser.userid = val.userid;
+	    		localUser.name = val.name;
+	    		localUser.company = false;
+	    		localUser.username = val.username;
+	    		
+			  if(sequencia == val.userid){
+				  sequencia = val.userid;
+				  $(boxMessageVisitor).tmpl(json).appendTo("#"+identificador+" > ul > li.messages");
+			  }else{
+				  identificador = val.id;
+				  localUser.id = identificador;
+				  $(boxChatVisitor).tmpl(json).appendTo( "#boxchat" );
+				  $(boxMessageVisitor).tmpl(json).appendTo("#"+val.id+" > ul > li.messages");
+				  sequencia = val.userid;	    					  
+			  }
+		  }else{
+			  if(sequencia == val.userid){
+				  sequencia = val.userid;
+				  $(boxMessage).tmpl(json).appendTo("#"+identificador+" > ul > li.messages");
+			  }else{
+				  identificador = val.id;
+				  localUser.id = identificador;
+				  $(boxChat).tmpl(json).appendTo( "#boxchat" );
+				  $(boxMessage).tmpl(json).appendTo("#"+val.id+" > ul > li.messages");
+				  sequencia = val.userid;	    					  
+			  }  
+		  }
+    	
+    	$(".nano").nanoScroller();
+    	$(".nano").nanoScroller({scroll:'bottom'});
+    }
+    
     var loadChat = function(){
-    	$.getJSON( "/static/json/talk2.json", function( data ) {    		
-    		  var sequencia;
-    		  var identificador;
-    		  
+    	$.getJSON( "/static/json/talk.json", function( data ) {
     		  if(data.talkMessages.length > 0){
 	    		  $.each( data.talkMessages, function( key, val ) {
 	    			  company = val.company ? val.company.name : ''; 
-	    			  alreadyRead = read( val.message.alreadyRead);
 	    			  	    			  
 	    			  var insert = [
-		    			                { id: val.id, 
-		    			                	userid: val.user.id,
-		    			                	name: val.user.name,
-		    			                	company: company, 
-		    			                	username: val.user.name,
-		    			                	alreadyRead: alreadyRead,
-		    			                	message: val.message.message,
-		    			                	time:formatDate(val.message.time)
+		    			                { "id": val.id, 
+		    			                	"userid": val.user.id,
+		    			                	"name": val.user.name,
+		    			                	"company": company, 
+		    			                	"username": val.user.name,
+		    			                	"alreadyRead": read( val.message.alreadyRead),
+		    			                	"message": val.message.message,
+		    			                	"time":formatDate(val.message.time, true)
 		    			                }
-	    			                ];	    			  
-	    			  if(!val.company){	    				 
-	    				  if(sequencia == val.user.id){
-	    					  sequencia = val.user.id;
-	    					  $(boxMessageVisitor).tmpl(insert).appendTo("#"+identificador+" > ul > li.messages");
-	    				  }else{
-	    					  identificador = val.id;
-	    					  $(boxChatVisitor).tmpl(insert).appendTo( "#boxchat" );
-	    					  $(boxMessageVisitor).tmpl(insert).appendTo("#"+val.id+" > ul > li.messages");
-	    					  sequencia = val.user.id;	    					  
-	    				  }
-	    			  }else{
-	    				  if(sequencia == val.user.id){
-	    					  sequencia = val.user.id;
-	    					  $(boxMessage).tmpl(insert).appendTo("#"+identificador+" > ul > li.messages");
-	    				  }else{
-	    					  identificador = val.id;
-	    					  $(boxChat).tmpl(insert).appendTo( "#boxchat" );
-	    					  $(boxMessage).tmpl(insert).appendTo("#"+val.id+" > ul > li.messages");
-	    					  sequencia = val.user.id;	    					  
-	    				  }  
-	    			  }
+	    			                ];	    
+  			  
+	    			  putMessage(insert);	    			  
 	      		  }	);
-    		  }
-    		
-    		});
-    	 
+    		  }    		
+    		});    	 
     }
     
+    $(function() {
+        $("#chat textarea").keypress(function (e) {
+            if(e.which == 13) {
+            	
+            	var insert = [
+  			                { "id": localUser.userid + 1, 
+  			                	"userid": localUser.userid,
+  			                	"name": localUser.name,
+  			                	"company": localUser.company, 
+  			                	"username": localUser.username,
+  			                	"alreadyRead": read(),
+  			                	"message": $(this).val(),
+  			                	"time":formatDate()
+  			                }
+			    ];           	
+            	
+            	putMessage(insert);
+     
+            	$(this).val("");
+                e.preventDefault();
+            }
+        });
+    });
+    
     loadChat();
-    
-
-    scrollbar.tinyscrollbar();
-
-    
-    
-    
     
 });

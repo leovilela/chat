@@ -1,5 +1,7 @@
 @CHARSET "UTF-8";
 
+
+
 #chat{
 		bottom: 0px;
 		height: 544px;
@@ -71,3 +73,28 @@
 		padding:10px;
 		
 	}
+	
+	
+@media (max-width: 615px) {
+	#chat{
+		bottom: 0px;
+		height: 544px;
+		position: absolute;
+		width: 320px;
+		right:0px;
+		background-color:#fff;
+		z-index:10;
+		-webkit-box-shadow: none;
+		-moz-box-shadow:none;
+		box-shadow:none;
+		overflow:hidden;
+	
+	}
+	#chat > div.topo > div.botoes > div.minimize{
+		display:none
+	}
+	
+	#chat > div.conteudo > div.mensagem > textarea{
+		width:272px
+	}
+}
