@@ -1,77 +1,74 @@
 @CHARSET "UTF-8";
 
 #chat{
-		bottom: 0px;
-		height: 544px;
-		position: absolute;
-		width: 600px;
-		right:0px;
-		background-color:#fff;
-		z-index:10;
-		-webkit-box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.75);
-		-moz-box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.75);
-		box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.75);
-		overflow:hidden;
-	
-	}
-	
-	#chat > div.topo{
-		background-color:#005da4;
-		height:36px;
-		width:100%;
-		position:relative
-	}
-	
-	#chat > div.topo > div.titulo{
-		font-size:18px;
-		font-style:italic;
-		font-family:arial,verdana;
-		color:#fff;
-		display:inline-block;
-		margin:7px 0 0 11px
-		
-	}
-	
-	#chat > div.topo > div.botoes{
-		display:inline-block;
-		right:10px;
-		position:absolute;
-		top:8px
-	}
-		
-	#chat > div.topo > div.botoes > div.minimize{	
-		width:20px;
-		height:20px;
-		background:  url("../../static/img/sprites.gif") no-repeat -150px 1px;
-		display:inline-block;
-		cursor:pointer;
-	}	
-	#chat > div.topo > div.botoes > div.close{	
-		width:20px;
-		height:20px;
-		background:  url("../../static/img/sprites.gif") no-repeat -183px 1px;
-		display:inline-block;
-		cursor:pointer;
-	}	
-	
-	#chat > div.conteudo > div.mensagem{
-		border-top: 1px #dcdcdc solid;
-		padding:13px 0 0 15px
-	}
-	
-	#chat > div.conteudo > div.mensagem > textarea{
-		width:550px;
-		height:50px;
-		background-color:#f1f1f1;
-		color:#919191;
-		border:0;
-		-webkit-box-shadow: inset 0px 0px 16px -1px rgba(0,0,0,0.25);
-		-moz-box-shadow: inset 0px 0px 16px -1px rgba(0,0,0,0.25);
-		box-shadow: inset 0px 0px 16px -1px rgba(0,0,0,0.25);
-		padding:10px;
-		
+	bottom: 0px;
+	height: 544px;
+	position: absolute;
+	width: 600px;
+	right:0px;
+	background-color:#fff;
+	z-index:10;
+	-webkit-box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.75);
+	overflow:hidden;
+}
 
-	}
+#chat > div.topo{
+	background-color:#005da4;
+	height:36px;
+	width:100%;
+	position:relative
+}
+
+#chat > div.topo > div.titulo{
+	font-size:18px;
+	font-style:italic;
+	font-family:arial,verdana;
+	color:#fff;
+	display:inline-block;
+	margin:7px 0 0 11px
+	
+}
+
+#chat > div.topo > div.botoes{
+	display:inline-block;
+	right:10px;
+	position:absolute;
+	top:8px
+}
+	
+#chat > div.topo > div.botoes > div.minimize{	
+	width:20px;
+	height:20px;
+	background:  url("../../static/img/sprites.gif") no-repeat -150px 1px;
+	display:inline-block;
+	cursor:pointer;
+}	
+#chat > div.topo > div.botoes > div.close{	
+	width:20px;
+	height:20px;
+	background:  url("../../static/img/sprites.gif") no-repeat -183px 1px;
+	display:inline-block;
+	cursor:pointer;
+}	
+
+#chat > div.conteudo > div.mensagem{
+	border-top: 1px #dcdcdc solid;
+	padding:13px 0 0 15px
+}
+
+#chat > div.conteudo > div.mensagem > textarea{
+	width:550px;
+	height:50px;
+	background-color:#f1f1f1;
+	color:#919191;
+	border:0;
+	-webkit-box-shadow: inset 0px 0px 16px -1px rgba(0,0,0,0.25);
+	-moz-box-shadow: inset 0px 0px 16px -1px rgba(0,0,0,0.25);
+	box-shadow: inset 0px 0px 16px -1px rgba(0,0,0,0.25);
+	padding:10px;
+}
 	
 	
 @media (max-width: 615px) {

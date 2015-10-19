@@ -1,156 +1,153 @@
 @CHARSET "UTF-8";
 
 	
-	#boxchat{
-		width:571px;
-			padding:10px
-	}
-	
-	#boxchat > div.linechat{
-		width:100%;
-		color:#666666;
-		float:left;
-	}
-
-	#boxchat > div.linechat > ul {
-		padding:0; margin:0
-	}
-	
-	#boxchat > div.linechat > ul > li {
-		display:inline;
-		padding:0; margin:0
-	}
-	
-	#boxchat > div.linechat > ul > li > div{
-		margin-top:10px
-	}
-	
-	#boxchat > div.linechat{
-		margin-top:10px
-	}
-	
-	#boxchat > div.linechat:first-child{
-		margin-top:0px
-	}
-	
-	#boxchat > div.linechat > ul > li > div:first-child{
-		margin-top:0
-	}
-	
-	#boxchat > div.linechat > ul > li > div.setadir{
-		padding: 0px 15px 0 0;
-		background:  url("../../../static/img/setas.gif") no-repeat right 0px;
-		float:left
-	}
-	
-	#boxchat > div.linechat > ul > li > div.setaesq{
-		padding: 0 0 0 15px;
-		background:  url("../../../static/img/setas.gif") no-repeat left 0px;
-		float:right
-	}
-	
-	#boxchat > div.linechat > ul > li > div > div.box{
-		width:427px;
-		float:left;
+#boxchat{
+	width:571px;
 		padding:10px
-	}
+}
+
+#boxchat > div.linechat{
+	width:100%;
+	color:#666666;
+	float:left;
+}
+
+#boxchat > div.linechat > ul {
+	padding:0; margin:0
+}
+
+#boxchat > div.linechat > ul > li {
+	display:inline;
+	padding:0; margin:0
+}
+
+#boxchat > div.linechat > ul > li > div{
+	margin-top:10px
+}
+
+#boxchat > div.linechat{
+	margin-top:10px
+}
+
+#boxchat > div.linechat:first-child{
+	margin-top:0px
+}
+
+#boxchat > div.linechat > ul > li > div:first-child{
+	margin-top:0
+}
+
+#boxchat > div.linechat > ul > li > div.setadir{
+	padding: 0px 15px 0 0;
+	background:  url("../../../static/img/setas.gif") no-repeat right 0px;
+	float:left
+}
+
+#boxchat > div.linechat > ul > li > div.setaesq{
+	padding: 0 0 0 15px;
+	background:  url("../../../static/img/setas.gif") no-repeat left 0px;
+	float:right
+}
+
+#boxchat > div.linechat > ul > li > div > div.box{
+	width:427px;
+	float:left;
+	padding:10px
+}
+
+#boxchat > div.linechat > ul > li > div > div.box{
+	background-color:#dddddd;
+}
+
+#boxchat > div.linechat > ul > li > div > div.box > div.conversa{
+	position:relative;
+	float:left
+}
+
+
+#boxchat > div.linechat > ul > li > div > img {
+	max-width: 100%;
+	height: auto;
+}
+
+
+#boxchat > div.linechat > ul > li > div > div.box > div.conversa > div.perfil
+{
+	font-size:14px;
+	font-style:italic;
+	font-family:arial,verdana;
+	float:left;
+	width:144px;
 	
-	#boxchat > div.linechat > ul > li > div > div.box{
-		background-color:#dddddd;
-	}
+}
+#boxchat > div.linechat > ul > li > div > div.box > div.conversa > div.perfil > div.empresa{
+	font-weight:bold
+}
+
+#boxchat > div.linechat > ul > li > div.setadir > div.box > div.conversa{
+	float:left;
+}
+
+#boxchat > div.linechat > ul > li > div > div.box > div.conversa > div.sentencas{
+	font-size:16px;
+	font-style:italic;
+	font-family:arial,verdana;
+	width:282px;
+	float:left
+}
+
+#boxchat > div.linechat > ul > li > div.setaesq > div.box > div.conversa > div.sentencas{
+	float:right
+}
 	
-	#boxchat > div.linechat > ul > li > div > div.box > div.conversa{
-		position:relative;
-		float:left
-	}
+#boxchat > div.linechat > ul > li > div > div.box > div.conversa > div.visualizacao > div.horario{
+	font-size:11px;
+	font-style:italic;
+	font-family:arial,verdana;
+}
+
+#boxchat > div > ul > li > div.setadir > div > div > div.perfil{
+	text-align:right;
+	position:absolute;
+	bottom:20px;
+	right:0px
+}
+
+  #boxchat > div > ul > li > div.foto.esq{
+	float:left
+}
+
+#boxchat > div > ul > li > div.setaesq > div > div > div.perfil{
+	text-align:right;
+	position:absolute;
+	bottom:20px;
+	left:0px
+}
+
+#boxchat > div > ul > li > div.setaesq > div > div > div.perfil{
+	text-align:left;
+}
+
+#boxchat > div > ul > li > div > div > div > div.visualizacao{
+	width:425px;
+	float:left;
+	height:17px
+}
+
+#boxchat > div > ul > li > div > div > div > div.visualizacao.lido{
+	background:  url("../../../static/img/status-ok.gif") no-repeat 0 0px;
+}
+
+#boxchat > div > ul > li > div > div > div > div.visualizacao.nlido{
+	background:  url("../../../static/img/status-waiting.gif") no-repeat 0 0px;
+}
+
+#boxchat > div > ul > li > div.setadir > div > div > div.visualizacao{
+	text-align:right
+}	
 	
 
-	#boxchat > div.linechat > ul > li > div > img {
-		max-width: 100%;
-		height: auto;
-	}
-	
-
-	#boxchat > div.linechat > ul > li > div > div.box > div.conversa > div.perfil
-	{
-		font-size:14px;
-		font-style:italic;
-		font-family:arial,verdana;
-		float:left;
-		width:144px;
-		
-	}
-	#boxchat > div.linechat > ul > li > div > div.box > div.conversa > div.perfil > div.empresa{
-		font-weight:bold
-	}
-	
-	#boxchat > div.linechat > ul > li > div.setadir > div.box > div.conversa{
-		float:left;
-	}
-	
-	#boxchat > div.linechat > ul > li > div > div.box > div.conversa > div.sentencas{
-		font-size:16px;
-		font-style:italic;
-		font-family:arial,verdana;
-		width:282px;
-		float:left
-	}
-	
-	#boxchat > div.linechat > ul > li > div.setaesq > div.box > div.conversa > div.sentencas{
-		float:right
-	}
-		
-	#boxchat > div.linechat > ul > li > div > div.box > div.conversa > div.visualizacao > div.horario{
-		font-size:11px;
-		font-style:italic;
-		font-family:arial,verdana;
-	}
-	
-	#boxchat > div > ul > li > div.setadir > div > div > div.perfil{
-		text-align:right;
-		position:absolute;
-		bottom:20px;
-		right:0px
-	}
-	
-   #boxchat > div > ul > li > div.foto.esq{
-		float:left
-	}
-	
-	#boxchat > div > ul > li > div.setaesq > div > div > div.perfil{
-		text-align:right;
-		position:absolute;
-		bottom:20px;
-		left:0px
-	}
-	
-	#boxchat > div > ul > li > div.setaesq > div > div > div.perfil{
-		text-align:left;
-	}
-	
-	#boxchat > div > ul > li > div > div > div > div.visualizacao{
-		width:425px;
-		float:left;
-		height:17px
-	}
-	
-	#boxchat > div > ul > li > div > div > div > div.visualizacao.lido{
-		background:  url("../../../static/img/status-ok.gif") no-repeat 0 0px;
-	}
-	
-	#boxchat > div > ul > li > div > div > div > div.visualizacao.nlido{
-		background:  url("../../../static/img/status-waiting.gif") no-repeat 0 0px;
-	}
-	
-	#boxchat > div > ul > li > div.setadir > div > div > div.visualizacao{
-		text-align:right
-	}
-	
-	
-
-	/**.nano { background: #bba; width: 575px; height: 410px; }**/
-
-/** initial setup **/
+/** initial setup scrollbar nano **/
 .nano {
   position : relative;
   width    : 600px;
